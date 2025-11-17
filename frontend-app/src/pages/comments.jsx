@@ -43,7 +43,7 @@ const CommentsSection = () => {
       const res = await axios.post(`http://localhost:8081/comment/add/${blogId}`, form);
 
       if (res.data.success) {
-        setComments(res.data.data.comments);
+        fetchComments();
         setForm({ name: "", email: "", description: "" });
       } else {
         alert(res.data.message);
@@ -67,7 +67,7 @@ const CommentsSection = () => {
       });
 
       if (res.data.success) {
-        setComments(res.data.data.comments);
+        fetchComments();
       } else {
         alert(res.data.message);
       }

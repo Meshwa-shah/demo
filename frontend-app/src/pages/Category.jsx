@@ -274,7 +274,6 @@ export default function Category() {
                 {loading ? "Saving..." : editId ? "Update" : "Add"}
               </button>
             </div>
-
           </div>
         </div>
       )}

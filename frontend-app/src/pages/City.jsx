@@ -26,7 +26,7 @@ export default function City() {
   const addCity = async () => {
     if (cityName === "") return;
     try {
-      await axios.post(`${BASE_URL}/add`, { name: cityName });
+      await axios.post(`${BASE_URL}/add`, { city: cityName });
       fetchCities();
       setPopupOpen(false);
     } catch (error) {
@@ -37,7 +37,7 @@ export default function City() {
   const updateCity = async () => {
     if (cityName === "") return;
     try {
-      await axios.put(`${BASE_URL}/edit/${editId}`, { name: cityName });
+      await axios.put(`${BASE_URL}/edit/${editId}`, { city: cityName });
       fetchCities();
       setPopupOpen(false);
     } catch (error) {
@@ -62,7 +62,7 @@ export default function City() {
   };
 
   const handleEdit = (i) => {
-    setCityName(city[i].City);
+    setCityName(city[i].city);
     setEditId(city[i]._id);
     setPopupOpen(true);
   };
@@ -132,7 +132,7 @@ export default function City() {
             {city.map((city, index) => (
               <tr key={index} className="hover:bg-gray-100">
                 <td className="p-3 border text-center">{index + 1}</td>
-                <td className="p-3 border text-center">{city.City}</td>
+                <td className="p-3 border text-center">{city.city}</td>
                 <td className="p-3 border text-center">
                   <div className="flex flex-col sm:flex-row gap-2 justify-center">
                     <button

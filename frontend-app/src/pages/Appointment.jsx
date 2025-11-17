@@ -48,8 +48,8 @@ export default function Appointment() {
     try {
       const res = await axios.post("http://localhost:8081/appointment/add", form);
 
-      if (res.data.success) {
-        setAppointments(res.data.data);
+      if (res.data.success === true) {
+       loadAppointments();
         setShowModal(false);
         setForm({ name: "", email: "", number: 0, clinic: "", url: "" });
       }
@@ -89,12 +89,12 @@ export default function Appointment() {
           </thead>
 
           <tbody>
-            {appointments.map((ap, index) => (
+            {appointments.length > 0 && appointments.map((ap, index) => (
               <tr key={ap._id} className="hover:bg-gray-100">
                 <td className="p-3 border text-center">{index + 1}</td>
                 <td className="p-3 border text-center">{ap.name}</td>
                 <td className="p-3 border text-center">{ap.email}</td>
-                <td className="p-3 border text-center">{ap.mobile}</td>
+                <td className="p-3 border text-center">{ap.number}</td>
                 <td className="p-3 border text-center">{ap.clinic}</td>
                 <td className="p-3 border truncate text-center">{ap.url}</td>
               </tr>

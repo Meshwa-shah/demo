@@ -23,8 +23,6 @@ export default function AdminLayout() {
  }
   return (
     <div className="flex h-screen w-full overflow-y-hidden overflow-x-auto">
-
-     
       <div className="hidden lg:block">
         <Sidebar />
       </div>

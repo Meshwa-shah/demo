@@ -40,7 +40,7 @@ export default function Redirection() {
       });
 
       if (res.data.success) {
-        setUrls(res.data.data);
+        fetchUrls();
         setShowModal(false);
         setSource("");
         setDestination("");
@@ -58,7 +58,7 @@ export default function Redirection() {
       const res = await axios.post("http://localhost:8081/url/delete", { id });
 
       if (res.data.success) {
-        setUrls(res.data.data);
+       fetchUrls();
       }
     } catch (err) {
       console.error(err);

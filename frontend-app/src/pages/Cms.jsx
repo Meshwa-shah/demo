@@ -46,10 +46,10 @@ export default function Cms() {
     try {
       if (editId) {
         const res = await axios.put(`${API}/edit/${editId}`, form);
-        if (res.data.success) setCmsList(res.data.data);
+        if (res.data.success) fetchCms();
       } else {
         const res = await axios.post(`${API}/add`, form);
-        if (res.data.success) setCmsList(res.data.data);
+        if (res.data.success) fetchCms();
       }
 
       closeModal();
@@ -64,7 +64,7 @@ export default function Cms() {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/delete`, { id });
-      if (res.data.success) setCmsList(res.data.data);
+      if (res.data.success) fetchCms();
     } catch (err) {
       console.log(err);
     }
