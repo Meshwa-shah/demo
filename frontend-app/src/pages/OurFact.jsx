@@ -60,7 +60,7 @@ export default function OurFact() {
 
     setLoading(false);
   };
-
+  
   // ✅ Edit
   const handleEdit = (fact) => {
     setEditId(fact._id);
